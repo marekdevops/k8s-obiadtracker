@@ -1,0 +1,78 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-rabbit
+spec:
+  selector:
+    matchLabels:
+      app: my-rabbit
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: my-rabbit
+    spec:
+      containers:
+      - name: my-rabbit
+        image: rabbitmq:3-management
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: marekjasinski/obiad-tracker-frontend:latest
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  selector:
+    matchLabels:
+      app: api
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: marekjasinski/obiad-tracker-api:latest
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trackorder
+spec:
+  selector:
+    matchLabels:
+      app: trackorder
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: trackorder
+    spec:
+      containers:
+      - name: trackorder
+        image: marekjasinski/obiad-tracker-trackorder:latest
+
