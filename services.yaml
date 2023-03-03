@@ -5,9 +5,6 @@ metadata:
   name: my-rabbit
 
 spec:
-  # This defines which pods are going to be represented by this Service
-  # The service becomes a network endpoint for either other services
-  # or maybe external users to connect to (eg browser)
   selector:
     app: my-rabbit
 
@@ -27,9 +24,6 @@ metadata:
   name: frontend
 
 spec:
-  # This defines which pods are going to be represented by this Service
-  # The service becomes a network endpoint for either other services
-  # or maybe external users to connect to (eg browser)
   selector:
     app: frontend
 
@@ -46,9 +40,6 @@ metadata:
   name: trackorder
 
 spec:
-  # This defines which pods are going to be represented by this Service
-  # The service becomes a network endpoint for either other services
-  # or maybe external users to connect to (eg browser)
   selector:
     app: trackorder
 
@@ -65,12 +56,8 @@ metadata:
   name: api
 
 spec:
-  # This defines which pods are going to be represented by this Service
-  # The service becomes a network endpoint for either other services
-  # or maybe external users to connect to (eg browser)
   selector:
     app: api
-
   ports:
     - name: http
       port: 8082
